@@ -1,0 +1,50 @@
+{
+  "name": "@localnerve/trusted-types-rules",
+  "version": "0.1.0-rc.1",
+  "description": "Compute Content-Security-Policy trusted-types rules and audit injection sinks from JavaScript sources, including web components.",
+  "main": "index.js",
+  "type": "module",
+  "exports": {
+    "import": "./index.js",
+    "default": "./index.js"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "node -e \"const fs=require('fs'); fs.rmSync('coverage', {recursive:true, force:true}); fs.mkdirSync('coverage', {recursive:true})\"",
+    "test": "node --test --experimental-test-coverage --test-coverage-lines=90 --test-coverage-exclude='test/**' --test-reporter=spec --test-reporter-dest=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info"
+  },
+  "keywords": [
+    "csp",
+    "content-security-policy",
+    "trusted-types",
+    "require-trusted-types-for",
+    "xss",
+    "web-components",
+    "build",
+    "audit"
+  ],
+  "author": "Alex Grant <alex@localnerve.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/localnerve/trusted-types-rules.git"
+  },
+  "bugs": {
+    "url": "https://github.com/localnerve/trusted-types-rules/issues"
+  },
+  "homepage": "https://github.com/localnerve/trusted-types-rules#readme",
+  "files": [
+    "index.js",
+    "license.md",
+    "readme.md"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.9.1",
+    "globals": "^17.12.0"
+  },
+  "dependencies": {
+    "acorn": "^8.18.0",
+    "acorn-walk": "^8.3.5"
+  }
+}

@@ -1,0 +1,31 @@
+name: Verify
+on:
+  pull_request:
+    branches: [ main, rc-stage ]
+
+jobs:
+  verify:
+
+    runs-on: ubuntu-24.04
+
+    strategy:
+      matrix:
+        node-version: [22.x, 24.x, 26.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # 7.0.1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # 7.0.0
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - name: Run Lint and Test
+      run: npm run lint && npm test
+    - name: Coverage Upload
+      if: ${{ success() }}
+      uses: coverallsapp/github-action@8d6379e14d29928660c4ba802d8e85393440b329 # 2.3.8
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: ./coverage/lcov.info
+        fail-on-error: false

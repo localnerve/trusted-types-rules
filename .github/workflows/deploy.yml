@@ -1,0 +1,30 @@
+name: Deploy
+on:
+  push:
+    branches: [ main, rc-stage ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+        - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # 7.0.1
+        - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # 7.0.0
+          with:
+            node-version: '24.x'
+            registry-url: 'https://registry.npmjs.org'
+        #- name: Update npm
+        #  run: npm install -g npm@latest # ensure npm 11.5.1 or later
+        - run: npm ci
+        - name: Run Lint and Test
+          run: npm run lint && npm test
+        - name: Publish with Provenance
+          if: ${{ success() }}
+          run: |
+            if [ "${{ github.ref_name }}" = "rc-stage" ]; then
+              npm publish --access public --tag rc
+            else
+              npm publish --access public
+            fi

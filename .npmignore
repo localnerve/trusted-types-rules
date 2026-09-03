@@ -1,0 +1,7 @@
+tmp
+__tests__
+.github
+.vscode
+coverage
+.gitignore
+.eslint.config.js
