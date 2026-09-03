@@ -1,6 +1,6 @@
 {
   "name": "@localnerve/trusted-types-rules",
-  "version": "0.1.0-rc.1",
+  "version": "1.0.0",
   "description": "Compute Content-Security-Policy trusted-types rules and audit injection sinks from JavaScript sources, including web components.",
   "main": "index.js",
   "type": "module",
@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "node -e \"const fs=require('fs'); fs.rmSync('coverage', {recursive:true, force:true}); fs.mkdirSync('coverage', {recursive:true})\"",
-    "test": "node --test --experimental-test-coverage --test-coverage-lines=90 --test-coverage-exclude='test/**' --test-reporter=spec --test-reporter-dest=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info"
+    "test": "node --test --experimental-test-coverage --test-coverage-lines=90 --test-coverage-exclude='test/**' --test-reporter=spec --test-reporter-destination=stdout --test-reporter=lcov --test-reporter-destination=coverage/lcov.info"
   },
   "keywords": [
     "csp",
@@ -37,6 +37,16 @@
     "index.js",
     "license.md",
     "readme.md"
+  ],
+  "funding": [
+    {
+      "type": "github",
+      "url": "https://github.com/sponsors/localnerve"
+    },
+    {
+      "type": "paypal",
+      "url": "https://www.paypal.com/ncp/payment/DHCB5GUYMGX5U"
+    }
   ],
   "devDependencies": {
     "@eslint/js": "^10.0.1",
