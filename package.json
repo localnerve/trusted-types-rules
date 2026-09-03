@@ -1,6 +1,6 @@
 {
   "name": "@localnerve/trusted-types-rules",
-  "version": "0.1.0-rc.3",
+  "version": "1.0.0",
   "description": "Compute Content-Security-Policy trusted-types rules and audit injection sinks from JavaScript sources, including web components.",
   "main": "index.js",
   "type": "module",
