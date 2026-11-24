@@ -1,6 +1,6 @@
 {
   "name": "@localnerve/trusted-types-rules",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Compute Content-Security-Policy trusted-types rules and audit injection sinks from JavaScript sources, including web components.",
   "main": "index.js",
   "type": "module",
@@ -50,7 +50,7 @@
   ],
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "eslint": "^10.14.0",
+    "eslint": "^10.15.0",
     "globals": "^17.14.0"
   },
   "dependencies": {
@@ -58,6 +58,6 @@
     "acorn-walk": "^8.3.5"
   },
   "overrides": {
-    "minimatch": "^11.0.8"
+    "minimatch": "^11.0.9"
   }
 }
